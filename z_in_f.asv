@@ -3,9 +3,9 @@ function r = z_in_f() %eq 108 ok
     
     rho0 = (P.a+P.L)/2;
     
-    r = -1/P.I0^2*1j*P.omega*P.mu*P.delta_phi*P.L/4*(P.b-P.a)*rho0*summation();
+    r = -1/P.I0^2*1j*P.omega*P.mu*P.delta_phi*P.L/4*(P.b-P.a)*rho0*summation(rho0);
 
-    function acc = summation()
+    function acc = summation(rho0)
         acc = 0;
         for n = 1:P.its
             for q = 1:P.its
