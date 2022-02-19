@@ -5,11 +5,11 @@ function r = Hz_out_proj(m, p, s, t) %eq 89 ok'G_Mz_TFd
 
     function acc = summation()
         acc = 0;
-        for n = -P.its:P.its %ver com odilon como que é o esquema de somar de 0 a N, para economizar integrais
+        for n = -P.its.Hz_out_proj.n:P.its.Hz_out_proj.n %ver com odilon como que é o esquema de somar de 0 a N, para economizar integrais
             
 
             fun = @(kz) k_rho0(kz).^2.*G_Mz_TFd(P.b, n, kz, k_rho0(kz)).*M_z_Tef(n, kz, m, p).*M_z_Tef(n, kz, s, t);
-            acc = acc + integral(fun, -P.its, P.its);
+            acc = acc + integral(fun, -P.its.Hz_out_proj.kz, P.its.Hz_out_proj.kz);
         end
     end
 

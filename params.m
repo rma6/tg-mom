@@ -3,20 +3,20 @@ function P = params()
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.85e-12;
-P.epsilon_d = 2.55*P.epsilon_0*(1-1j*tan(2.2e-3));
+P.epsilon_d = 2.55*P.epsilon_0;%*(1-1j*tan(2.2e-3));
 
 %geometric parameters
-P.z1 = 0;
-P.z2 = 59.45e-3;
-P.a = 250e-3;
-P.b = 253.048e-3;
-P.phi1 = 10 * pi/180;
-P.phi2 = 20.9435 * pi/180;
-P.phi_1a = 0 * pi/180;
-P.phi_2a = 10.9435 * pi/180;
-P.phi_1f = 4.4611 * pi/180; %
-P.phi_2f = 4.4770 * pi/180; %deve estar certo, mas conferir com odilon mesmo assim
-P.z_f = 28.87e-3;
+P.z1 = 0; %ok
+P.z2 = 59.45e-3; %ok
+P.a = 250e-3; %ok
+P.b = 253.048e-3; %ok
+P.phi1 = -10 * pi/180; %ok
+P.phi2 = 20.9435 * pi/180; %ok
+P.phi_1a = 0 * pi/180; %ok
+P.phi_2a = 10.9435 * pi/180; %ok
+P.phi_1f = 4.013411 * pi/180; %ok
+P.phi_2f = 4.9245889 * pi/180; %ok
+P.z_f = 28.87e-3; %ok
 
 %source parameters
 P.omega = 2.45e9*2*pi;
@@ -31,15 +31,20 @@ P.kd = P.omega*sqrt(P.mu*P.epsilon_d);
 P.k0 = P.omega*sqrt(P.mu*P.epsilon_0);
 
 %theta parameters
-P.argmax = 400;
+P.argmax = 300;
 P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 2;
-P.Pmax = 4;
+P.Mmax = 14;
+P.Pmax = 1;
 P.Mspace = linspace(P.phi1, P.phi2, P.Mmax+1);
-P.its = 10;
+P.its.z_in_f.n = 100;
+P.its.z_in_f.q = 100;
+P.its.Hz_in_proj = 100;
+P.its.Hz_out_proj.n = 30;
+P.its.Hz_out_proj.kz = 30;
+P.its.V.n = 30;
 
 %ploting
 
