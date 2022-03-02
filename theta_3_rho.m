@@ -4,9 +4,7 @@ function r = theta_3_rho(n, q, k, rho) %eq 30': adição de K aos parâmetros pa
     ni = n*pi/P.delta_phi;
 
     A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2);
-    if imag(A_k_rho) > 0
-        A_k_rho = -A_k_rho;
-    end
+    A_k_rho = cinv(A_k_rho);
 
     if ni ==0
         argmin = 2*10^(-P.expmin);
@@ -20,7 +18,7 @@ function r = theta_3_rho(n, q, k, rho) %eq 30': adição de K aos parâmetros pa
         if abs(k_rho*P.a) > P.argmax
             r = -2j./(pi*k_rho*sqrt(P.a*rho)).*(sin(k_rho*(rho-P.a))/(2*k_rho*P.a)+cos(k_rho*(rho-P.a)));
         elseif abs(k_rho*P.a) < argmin &&  ni == 0
-            r = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*exp(P.gamma*k_rho*rho/2));
+            r = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*log(P.gamma*k_rho*rho/2));
         elseif abs(k_rho*P.a) < argmin &&  ni ~= 0
             r = -1j/(pi*k_rho)*((rho/P.a).^ni/P.a + (P.a./rho).^(ni-1)./rho);
         else
@@ -34,7 +32,7 @@ function r = theta_3_rho(n, q, k, rho) %eq 30': adição de K aos parâmetros pa
             if abs(k_rho*P.a) > P.argmax
                 r(it) = -2j/(pi*k_rho*sqrt(P.a*rho))*(sin(k_rho*(rho-P.a))/(2*k_rho*P.a)+cos(k_rho*(rho-P.a)));
             elseif abs(k_rho*P.a) < argmin &&  ni == 0
-                r(it) = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*exp(P.gamma*k_rho*rho/2));
+                r(it) = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*log(P.gamma*k_rho*rho/2));
             elseif abs(k_rho*P.a) < argmin &&  ni ~= 0
                 r(it) = -1j/(pi*k_rho)*((rho/P.a)^ni/P.a + (P.a/rho)^(ni-1)/rho);
             else

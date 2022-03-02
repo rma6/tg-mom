@@ -4,9 +4,7 @@ function r = theta_1(n, q, k) %eq 30': adição de K aos parâmetros para difere
     ni = n*pi/P.delta_phi;
 
     A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2);
-    if imag(A_k_rho) > 0
-        A_k_rho = -A_k_rho;
-    end
+    A_k_rho = cinv(A_k_rho);
 
     if ni == 0
         argmin = 2*10^(-P.expmin);

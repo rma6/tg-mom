@@ -36,14 +36,14 @@ P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 14;
+P.Mmax = 4;
 P.Pmax = 1;
 P.Mspace = linspace(P.phi1, P.phi2, P.Mmax+1);
 P.its.z_in_f.n = 100;
 P.its.z_in_f.q = 100;
 P.its.Hz_in_proj = 100;
-P.its.Hz_out_proj.n = 30;
-P.its.Hz_out_proj.kz = 30;
+P.its.Hz_out_proj.n = 100;
+P.its.Hz_out_proj.kz = 100*P.k0;
 P.its.V.n = 30;
 
 %ploting
