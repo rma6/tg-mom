@@ -31,7 +31,7 @@ P.kd = P.omega*sqrt(P.mu*P.epsilon_d);
 P.k0 = P.omega*sqrt(P.mu*P.epsilon_0);
 
 %theta parameters
-P.argmax = 300;
+P.argmax = 400;
 P.expmin = 200;
 P.gamma = 1.781072418;
 
