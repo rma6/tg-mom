@@ -1,4 +1,4 @@
-function P = params(omega)
+function P = params(freq)
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.85e-12;
@@ -19,7 +19,7 @@ P.z_f = 28.87e-3; %ok
 
 %source parameters
 if nargin > 0
-    P.omega = omega;
+    P.omega = freq*2*pi;
 else
     P.omega = 2.45e9*2*pi;
 end
@@ -46,7 +46,7 @@ P.its.z_in_f.n = 100;
 P.its.z_in_f.q = 100;
 P.its.Hz_in_proj = 100;
 P.its.Hz_out_proj.n = 100;
-P.its.Nkz = 10;
+P.its.Nkz = 100;
 P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.n = 30;
 
