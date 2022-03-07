@@ -51,6 +51,3 @@ P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.n = 30;
 
 %ploting
-
-%log
-P.log.all = false;

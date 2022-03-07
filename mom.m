@@ -1,10 +1,5 @@
 P = params();
 
-if P.log.all
-    fid = fopen("logs/log.txt", "w");
-    fclose(fid);
-end
-
 Zmatrix = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
 in = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
 out = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
