@@ -43,7 +43,8 @@ P.its.z_in_f.n = 100;
 P.its.z_in_f.q = 100;
 P.its.Hz_in_proj = 100;
 P.its.Hz_out_proj.n = 100;
-P.its.Hz_out_proj.kz = 100*P.k0;
+P.its.Nkz = 100;
+P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.n = 30;
 
 %ploting

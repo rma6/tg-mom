@@ -25,4 +25,5 @@ end
 
 dMatrix = Zmatrix\Vmatrix;
 
-z_in_f()+z_in_m(dMatrix, Vmatrix)
+% z_in_f()+z_in_m(dMatrix, Vmatrix)
+z_in_m(dMatrix, Vmatrix)
