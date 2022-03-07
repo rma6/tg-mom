@@ -1,6 +1,4 @@
-function r = theta_1(n, q, k) %eq 30': adição de K aos parâmetros para diferenciar região interna de externa (kd | k0); q might be array
-    P = params();
-    
+function r = theta_1(n, q, k, P) %eq 30': adição de K aos parâmetros para diferenciar região interna de externa (kd | k0); q might be array
     ni = n*pi/P.delta_phi;
 
     A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2);

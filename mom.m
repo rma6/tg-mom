@@ -14,9 +14,9 @@ for m = 1:P.Mmax
     for p = 1:P.Pmax
         for s = 1:P.Mmax
             for t = 1:P.Pmax
-                Vmatrix((s-1)*P.Pmax+t, 1) = V(s, t);
-                in((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_in_proj(m, p, s, t);
-                out((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_out_proj(m, p, s, t);
+                Vmatrix((s-1)*P.Pmax+t, 1) = V(s, t, P);
+                in((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_in_proj(m, p, s, t, P);
+                out((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_out_proj(m, p, s, t, P);
                 Zmatrix((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = in((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) - out((s-1)*P.Pmax+t, (m-1)*P.Pmax+p);
             end
         end
@@ -25,5 +25,4 @@ end
 
 dMatrix = Zmatrix\Vmatrix;
 
-% z_in_f()+z_in_m(dMatrix, Vmatrix)
-z_in_m(dMatrix, Vmatrix)
+z_in_f(P)+z_in_m(dMatrix, Vmatrix, P)

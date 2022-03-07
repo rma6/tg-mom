@@ -1,6 +1,4 @@
-function r = G_Mz_TF0(rho, n, kz) %eq 56: kz might be array
-    P = params();
-
+function r = G_Mz_TF0(rho, n, kz, P) %eq 56: kz might be array
     A_k_rho = sqrt(P.k0.^2 - kz.^2);
     A_k_rho = cinv(A_k_rho);
 

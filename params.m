@@ -1,5 +1,4 @@
-function P = params()
-
+function P = params(omega)
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.85e-12;
@@ -19,7 +18,11 @@ P.phi_2f = 4.9245889 * pi/180; %ok
 P.z_f = 28.87e-3; %ok
 
 %source parameters
-P.omega = 2.45e9*2*pi;
+if nargin > 0
+    P.omega = omega;
+else
+    P.omega = 2.45e9*2*pi;
+end
 P.I0 = 1;
 
 %aliases
@@ -43,7 +46,7 @@ P.its.z_in_f.n = 100;
 P.its.z_in_f.q = 100;
 P.its.Hz_in_proj = 100;
 P.its.Hz_out_proj.n = 100;
-P.its.Nkz = 1;
+P.its.Nkz = 10;
 P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.n = 30;
 
