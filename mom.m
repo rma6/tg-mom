@@ -1,23 +1,23 @@
-P = params();
+clear;
+pool = gcp();
 
-Zmatrix = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
-in = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
-out = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
-Vmatrix = zeros(P.Mmax*P.Pmax, 1);
+freqs = (2.2:0.05:2.7)*10^9;
 
-for m = 1:P.Mmax
-    for p = 1:P.Pmax
-        for s = 1:P.Mmax
-            for t = 1:P.Pmax
-                Vmatrix((s-1)*P.Pmax+t, 1) = V(s, t, P);
-                in((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_in_proj(m, p, s, t, P);
-                out((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = Hz_out_proj(m, p, s, t, P);
-                Zmatrix((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) = in((s-1)*P.Pmax+t, (m-1)*P.Pmax+p) - out((s-1)*P.Pmax+t, (m-1)*P.Pmax+p);
-            end
-        end
-    end
+for it = 1:size(freqs, 2)
+    Zjobs(it) = parfeval(pool, @buildZMat, 1, params(freqs(it)));
+    Vjobs(it) = parfeval(pool, @buildVMat, 1, params(freqs(it)));
 end
 
-dMatrix = Zmatrix\Vmatrix;
+Zs = fetchOutputs(Zjobs);
+Vs = fetchOutputs(Vjobs);
 
-z_in_f(P)+z_in_m(dMatrix, Vmatrix, P)
+Ds = cell(size(Zs));
+zinf = zeros(1, size(Zs, 1));
+zinm = zeros(1, size(Zs, 1));
+zin = zeros(1, size(Zs, 1));
+for it = 1:size(Zs, 1)
+    Ds{it} = Zs{it}\Vs{it};
+    zinf(it) = z_in_f(params(freqs(it)));
+    zinm(it) = z_in_m(Ds{it}, Vs{it}, params(freqs(it)));
+    zin(it) = zinf(it) + zinm(it);
+end
