@@ -1,4 +1,4 @@
-function r = buildVMat(P)
+function r = buildVMat(P, q)
     r = cell(1);
     Vmatrix = zeros(P.Mmax*P.Pmax, 1);
 
@@ -11,6 +11,8 @@ function r = buildVMat(P)
             end
         end
     end
+
+    send(q, sprintf("finished buildVMat@%f at %s", P.omega/(2*pi), string(datetime)));
 
     r{1} = Vmatrix;
 end
