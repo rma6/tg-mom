@@ -1,7 +1,7 @@
 clear;
 pool = gcp();
 
-freqs = (2.2:0.05:2.7)*10^9;
+freqs = (2.2:0.01:2.7)*10^9;
 
 for it = 1:size(freqs, 2)
     Zjobs(it) = parfeval(pool, @buildZMat, 1, params(freqs(it)));

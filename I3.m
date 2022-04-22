@@ -1,12 +1,12 @@
 function r = I3(n, m, P) %eq 62 ok    
     if m <= (P.Mmax/2)
-	  deltaphi = (P.phi_1a - P.phi1)/(P.Mmax/2);
-	  phi_1m = P.phi1 + (m-1)*deltaphi;
-	  phi_2m = P.phi1 + m*deltaphi;
+	  deltaphim = (P.phi_1a - P.phi1)/(P.Mmax/2);
+	  phi_1m = P.phi1 + (m-1)*deltaphim;
+	  phi_2m = P.phi1 + m*deltaphim;
 	else
-	  deltaphi = (P.phi2 - P.phi_2a)/(P.Mmax/2);
-	  phi_1m = P.phi_2a + (m-P.Mmax/2-1)*deltaphi;
-	  phi_2m = P.phi_2a + (m-P.Mmax/2)*deltaphi;
+	  deltaphim = (P.phi2 - P.phi_2a)/(P.Mmax/2);
+	  phi_1m = P.phi_2a + (m-P.Mmax/2-1)*deltaphim;
+	  phi_2m = P.phi_2a + (m-P.Mmax/2)*deltaphim;
     end
     
     if n == 0
