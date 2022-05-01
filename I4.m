@@ -10,7 +10,7 @@ function r = I4(n, m, P) %eq 67 ok
     end
 
     if n == 0
-        r =deltaphi;
+        r = deltaphi;
     else
         r = (exp(1j*n*phi_2m)-exp(1j*n*phi_1m))/(1j*n);
     end

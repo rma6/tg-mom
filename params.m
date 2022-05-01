@@ -2,20 +2,20 @@ function P = params(freq)
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.85e-12;
-P.epsilon_d = 2.55*P.epsilon_0;%*(1-1j*tan(2.2e-3));
+P.epsilon_d = 2.55*P.epsilon_0;
 
 %geometric parameters
-P.z1 = 0; %ok
-P.z2 = 59.45e-3; %ok
-P.a = 250e-3; %ok
-P.b = 253.048e-3; %ok
-P.phi1 = -10 * pi/180; %ok
-P.phi2 = 20.9435 * pi/180; %ok
-P.phi_1a = 0 * pi/180; %ok
-P.phi_2a = 10.9435 * pi/180; %ok
-P.phi_1f = 4.013411 * pi/180; %ok
-P.phi_2f = 4.9245889 * pi/180; %ok
-P.z_f = 28.87e-3; %ok
+P.z1 = 0;
+P.z2 = 59.49e-3;
+P.a = 250e-3;
+P.b = 253.048e-3;
+P.phi1 = -0.0482;
+P.phi2 = 10.9435 * pi/180+0.0482;
+P.phi_1a = 0 * pi/180;
+P.phi_2a = 10.9435 * pi/180;
+P.phi_1f = 4.013411 * pi/180 -0.005;
+P.phi_2f = 4.9245889 * pi/180 -0.005;
+P.z_f = 28.87e-3;
 
 %source parameters
 if nargin > 0
@@ -41,13 +41,9 @@ P.gamma = 1.781072418;
 %iteration parameters
 P.Mmax = 14;
 P.Pmax = 1;
-P.Mspace = linspace(P.phi1, P.phi2, P.Mmax+1);
-P.its.z_in_f.n = 100;
-P.its.z_in_f.q = 100;
-P.its.Hz_in_proj = 100;
-P.its.Hz_out_proj.n = 100;
-P.its.Nkz = 100;
+P.its.z_in_f.n = 50;
+P.its.Hz_in_proj = 50;
+P.its.Hz_out_proj.n = 50;
+P.its.Nkz = 50;
 P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.n = 30;
-
-%ploting

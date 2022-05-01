@@ -17,7 +17,6 @@ function r = Hz_out_proj(m, p, s, t, P) %eq 89
                 cZzz2 = cZzz2 + CGQ1(fun, rkzl, rkzu, 16);
             end
 
-%             cZzz2 = CGQ1(fun, 0, P.its.Hz_out_proj.kz, 16);
             acc = acc + cZzz2;
         end
     end

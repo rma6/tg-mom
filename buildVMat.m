@@ -1,4 +1,4 @@
-function r = buildVMat(P, q)
+function r = buildVMat(P, q) %builds V matrix
     r = cell(1);
     Vmatrix = zeros(P.Mmax*P.Pmax, 1);
 

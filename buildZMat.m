@@ -1,4 +1,4 @@
-function r = buildZMat(P, q)
+function r = buildZMat(P, q) %builds Z matrix
     r = cell(1);
     Zmatrix = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
     in = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
