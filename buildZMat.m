@@ -1,4 +1,6 @@
 function r = buildZMat(P, q) %builds Z matrix
+    send(q, sprintf("started buildZMat@%f at %s", P.omega/(2*pi), string(datetime)));
+
     r = cell(1);
     Zmatrix = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
     in = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
