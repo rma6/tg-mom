@@ -1,4 +1,4 @@
-function r = I4(n, m, P) %eq 67 ok
+function r = I4_m(n, m, P) %eq 67 ok
     if m <= (P.Mmax/2)
 	  deltaphi = (P.phi_1a - P.phi1)/(P.Mmax/2);
 	  phi_1m = P.phi1 + (m-1)*deltaphi;

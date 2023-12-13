@@ -1,4 +1,4 @@
-function r = I3(n, m, P) %eq 62
+function r = I3_m(n, m, P) %eq 62
     if m <= (P.Mmax/2)
 	  deltaphim = (P.phi_1a - P.phi1)/(P.Mmax/2);
 	  phi_1m = P.phi1 + (m-1)*deltaphim;

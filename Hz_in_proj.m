@@ -10,15 +10,7 @@ function r = Hz_in_proj(m, p, s, t, P) %eq 88
     function acc = summation()
         acc = 0;
         for n = 0:P.its.Hz_in_proj
-            acc = acc + En(n)*G_Mz_TFd(P.b, n, p, P)*I3(n, m, P)*I3(n, s, P);
-        end
-    end
-
-    function r = En(n)
-        if  n == 0
-            r = 1;
-        else
-            r = 2;
+            acc = acc + E(n)*G_Mz_TFd(P.b, n, p, P)*I3_m(n, m, P)*I3_m(n, s, P);
         end
     end
 end
