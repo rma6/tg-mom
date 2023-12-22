@@ -1,15 +1,15 @@
 function P = params(freq)
 %constants
 P.mu = 4*pi*10.^-7;
-P.epsilon_0 = 8.85e-12;
-P.epsilon_d = 2.55*P.epsilon_0;
+P.epsilon_0 = 8.854e-12;
 P.tanp = 2.2e-3;
+P.epsilon_d = 2.55*P.epsilon_0*(1-1j*P.tanp);
 
 %geometric parameters
 P.a = 250e-3;
 P.b = 253.048e-3;
-P.z1 = 0;
-P.z2 = 59.49d-3;
+P.z1 = -36.59d-3;
+P.z2 = 36.59d-3;
 P.phi1 = -6.8182 * pi/180;
 P.phi2 = 6.8182 * pi/180;
 
@@ -47,11 +47,13 @@ P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 3;
+P.Mmax = 1;
 P.Pmax = 14;
 P.its.z_in_f.n = 50;
+P.its.z_in_f.q = 50;
 P.its.Hz_in_proj = 50;
 P.its.Hz_out_proj.n = 50;
 P.its.Nkz = 50;
 P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
-P.its.V.q = 30;
+P.its.V.q = 50;
+P.alpha = 0.5;

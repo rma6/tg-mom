@@ -1,5 +1,5 @@
-function r = buildZMat(P, q) %builds Z matrix
-    send(q, sprintf("started buildZMat@%f at %s", P.omega/(2*pi), string(datetime)));
+function r = buildZMat(P, queue) %builds Z matrix
+    send(queue, sprintf("started buildZMat@%f at %s", P.omega/(2*pi), string(datetime)));
 
     r = cell(1);
     Zmatrix = zeros(P.Mmax*P.Pmax, P.Mmax*P.Pmax);
@@ -18,7 +18,7 @@ function r = buildZMat(P, q) %builds Z matrix
         end
     end
 
-    send(q, sprintf("finished buildZMat@%f at %s", P.omega/(2*pi), string(datetime)));
+    send(queue, sprintf("finished buildZMat@%f at %s", P.omega/(2*pi), string(datetime)));
 
     r{1} = Zmatrix;
 end

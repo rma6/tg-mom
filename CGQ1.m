@@ -38,4 +38,4 @@ function CVAL = CGQ1(CF,XL,XU,N) %Gaussian quadrature
         error("Integration not possible")
     end
 end
-
+%ok

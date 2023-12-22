@@ -1,5 +1,5 @@
-function r = buildVMat(P, q) %builds V matrix
-    send(q, sprintf("started buildVMat@%f at %s", P.omega/(2*pi), string(datetime)));
+function r = buildVMat(P, queue) %builds V matrix
+    send(queue, sprintf("started buildVMat@%f at %s", P.omega/(2*pi), string(datetime)));
 
     r = cell(1);
     Vmatrix = zeros(P.Mmax*P.Pmax, 1);
@@ -14,7 +14,8 @@ function r = buildVMat(P, q) %builds V matrix
         end
     end
 
-    send(q, sprintf("finished buildVMat@%f at %s", P.omega/(2*pi), string(datetime)));
+    send(queue, sprintf("finished buildVMat@%f at %s", P.omega/(2*pi), string(datetime)));
 
     r{1} = Vmatrix;
 end
+%ok

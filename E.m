@@ -5,3 +5,4 @@ function r = E(n)
         r = 2;
     end
 end
+%ok

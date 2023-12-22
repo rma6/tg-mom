@@ -6,3 +6,4 @@ function r = cinv(arr) %inverts complex number if imaginary part is positive
     end
     r = arr;
 end
+%ok

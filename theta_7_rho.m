@@ -34,7 +34,7 @@ function r = theta_7_rho(n, q, k, rho, P) %thetas appendix: adição de K aos pa
             elseif abs(k_rho*P.a) < argmin &&  ni ~= 0
                 r(it) = 1j/(pi*k_rho)*((rho/P.a)^(ni-1)/P.a + (P.a/rho)^ni/rho);
             else
-                r(it) = dJ(ni, k_rho*rho)*besselh(ni, k_rho*P.a) - besselj(ni, k_rho*P.a)*dH2(ni, 2, k_rho*rho);
+                r(it) = dJ(ni, k_rho*rho)*besselh(ni, 2, k_rho*P.a) - besselj(ni, k_rho*P.a)*dH2(ni, k_rho*rho);
             end
         end 
     end
@@ -43,3 +43,4 @@ function r = theta_7_rho(n, q, k, rho, P) %thetas appendix: adição de K aos pa
         r = sum(log10(2:ceil(ni)))-log10(2*pi);
     end
 end
+%ok
