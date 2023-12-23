@@ -29,8 +29,9 @@ function r = Green_Mphi(rho, n, kz, P) %eqs 94-96: kz might be array
                 %check calculations
             end
         elseif real(k_rho*P.b) == 0 && abs(imag(k_rho*P.b)) >= P.argmax
-            r(it) = P.omega*P.epsilon_0/k_rho + (n*kz(it))^2/(P.omega*P.mu*k_rho*k_rho*P.b^2);
+            r(it) = P.omega*P.epsilon_0/k_rho + (n*kz(it))^2/(P.omega*P.mu*k_rho*(k_rho*P.b)^2);
                 %check calculations
+                %ok
         else
             dH2_besselh = dH2(n, k_rho*P.b)/besselh(n, 2, k_rho*rho);
             r(it) = 1j*P.omega*P.epsilon_0/k_rho*dH2_besselh ...

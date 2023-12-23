@@ -32,8 +32,7 @@ function CVAL = CGQ1(CF,XL,XU,N) %Gaussian quadrature
         BX = XU-XL;
 
         DX = QG(NP:2:NE)*BX;
-        CVAL = BX*(CF(AX+DX)+CF(AX-DX))*QG((NP:2:NE)+1)';
-        return
+        CVAL = BX*(CF(AX+DX)+CF(AX-DX))*QG((NP:2:NE)+1)';        
     else
         error("Integration not possible")
     end

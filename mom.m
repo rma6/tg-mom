@@ -9,8 +9,8 @@ queue = parallel.pool.DataQueue();
 afterEach(queue, @disp);
 
 %frequency space
-%freqs = linspace(2.3,2.5,80)*10^9;
-freqs=[2.42, 2.43, 2.44]*10^9;
+freqs = linspace(2.3,2.6,120)*10^9;
+%freqs=[2.42, 2.43, 2.44]*10^9;
 freqs_ghz = freqs/10^9;
 
 %starts jobs

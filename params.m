@@ -57,3 +57,4 @@ P.its.Nkz = 50;
 P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
 P.its.V.q = 50;
 P.alpha = 0.5;
+P.fast = true;
