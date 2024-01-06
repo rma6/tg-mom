@@ -9,7 +9,7 @@ function r = Hz_in_proj(m, p, s, t, P) %eq 89
     function acc = summation()
         acc = 0;
         temp = m*pi^2/(1j*P.omega*P.mu*P.b*P.delta_phi*P.L);
-        for q = 0:P.its.Hz_in_proj
+        for q = 0:P.its.qMax
             acc = acc + E(q)*(-drho_G_Mphi_TAd(P.b, m, q, P)-temp*q*G_Mphi_TFd(P.b, m, q, P))*I3_p(q, p, P)*I3_p(q, t, P);
         end
     end

@@ -47,14 +47,10 @@ P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 1;
+P.Mmax = 3;
 P.Pmax = 14;
-P.its.z_in_f.n = 50;
-P.its.z_in_f.q = 50;
-P.its.Hz_in_proj = 50;
-P.its.Hz_out_proj.n = 50;
+P.its.nMax = 50;
+P.its.qMax = 50;
 P.its.Nkz = 50;
-P.its.Hz_out_proj.kz = P.its.Nkz*P.k0;
-P.its.V.q = 50;
 P.alpha = 0.5;
 P.fast = true;
