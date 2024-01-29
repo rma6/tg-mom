@@ -43,6 +43,7 @@ peak_dMat = Ds{freq_index};
 radpat(peak_dMat, params(peak_freq))
 
 %plots results
+figure
 plot(freqs_ghz, real(zin), 'color', '#0072BD')
 hold on
 plot(freqs_ghz, imag(zin), 'color', "#D95319")
