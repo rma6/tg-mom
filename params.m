@@ -47,7 +47,7 @@ P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 1;
+P.Mmax = 3;
 P.Pmax = 14;
 P.its.nMax = 50;
 P.its.qMax = 50;
