@@ -46,6 +46,7 @@ end
 peak_freq = freqs(freq_index);
 if size(peak_freq, 2) > 1
     peak_freq = interp1(peak_freq,peak_freq,2.4e9,'nearest');
+    freq_index = find(freqs == peak_freq);
 end
 peak_dMat = Ds{freq_index};
 peak_power = 0.5*real(zin(freq_index))*abs(P.I0)^2;
