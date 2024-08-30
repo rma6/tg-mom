@@ -44,8 +44,12 @@ end
 
 [~, freq_index] = findpeaks(real(zin));
 peak_freq = freqs(freq_index);
+if size(peak_freq, 2) > 1
+    peak_freq = interp1(peak_freq,peak_freq,2.4e9,'nearest');
+end
 peak_dMat = Ds{freq_index};
-radpat(peak_dMat, params(peak_freq))
+peak_power = 0.5*real(zin(freq_index))*abs(P.I0)^2;
+radpat(peak_dMat, peak_power, params(peak_freq))
 
 %plots results
 figure("Name", "zin")
@@ -68,7 +72,7 @@ FigList = findobj(allchild(0), 'flat', 'Type', 'figure');
 for iFig = 1:length(FigList)
   FigHandle = FigList(iFig);
   FigName   = get(FigHandle, 'Name');
-  savefig(FigHandle, fullfile(sprintf("data/%s", tstamp), FigName, '.fig'));
+  savefig(FigHandle, fullfile(sprintf("data/%s/%s.fig", tstamp, FigName)));
 end
 
 diary off
