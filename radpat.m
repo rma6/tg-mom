@@ -1,4 +1,4 @@
-function radpat(dMat, peak_power, P)
+function [M_theta_db, M_phi_db] = radpat(dMat, peak_power, P)
     M_theta = zeros(0, 3);
     M_phi = zeros(0, 3);
     for theta=1:179

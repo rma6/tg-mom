@@ -15,7 +15,7 @@ queue = parallel.pool.DataQueue();
 afterEach(queue, @disp);
 
 %frequency space
-freqs = linspace(2.2,2.6,401)*10^9;
+freqs = linspace(2.2,2.6,10)*10^9;
 %freqs=[2.43]*10^9;
 freqs_ghz = freqs/10^9;
 
@@ -49,7 +49,7 @@ if size(peak_freq, 2) > 1
 end
 peak_dMat = Ds{freq_index};
 peak_power = 0.5*real(zin(freq_index))*abs(P.I0)^2;
-radpat(peak_dMat, peak_power, params(peak_freq))
+[M_theta_db, M_phi_db] = radpat(peak_dMat, peak_power, params(peak_freq));
 
 %plots results
 figure("Name", "zin")
