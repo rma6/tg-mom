@@ -77,4 +77,5 @@ end
 
 diary off
 beep
+sprintf("finished MoM at %s", string(datetime))
 %mpiprofile viewer
