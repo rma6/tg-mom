@@ -61,21 +61,21 @@ else
 end
 
 if exist("nMax", "var")
-    P.its.nMax = nMax;
+    P.nMax = nMax;
 else
-    P.its.nMax = 50;
+    P.nMax = 50;
 end
 
 if exist("qMax", "var")
-    P.its.qMax = qMax;
+    P.qMax = qMax;
 else
-    P.its.qMax = 50;
+    P.qMax = 50;
 end
 
 if exist("Nkz", "var")
-    P.its.Nkz = Nkz;
+    P.Nkz = Nkz;
 else
-    P.its.Nkz = 50;
+    P.Nkz = 50;
 end
 
 P.alpha = 0.5;

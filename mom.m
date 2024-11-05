@@ -27,7 +27,6 @@ for ci = 1:size(confs, 1)
     
     %; was omited for logging purposes
     P=params(2.4*10^9, confs(ci,1), confs(ci,2), confs(ci,3), confs(ci,4), confs(ci,5))
-    P.its
     
     %sets up multithreading
     pool = gcp();
