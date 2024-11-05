@@ -14,15 +14,7 @@ function r = Hz_out_proj(m, p, s, t, P) %eq 94
                                                               + M_phi_Tef(-n, -kz, m, p, P).*M_phi_Tef(n, kz, s, t, P));
             end
 
-            if P.fast
-                acc = acc + quadgk(@(Akz) unmake_contour(Akz, fun(make_contour(Akz))), 0, P.its.Nkz*P.k0);
-            else
-                for k=1:P.its.Nkz
-                    lower_lim = (k-1)*P.k0;
-                    upper_lim = k*P.k0;
-                    acc = acc + CGQ1(@(Akz) unmake_contour(Akz, fun(make_contour(Akz))), lower_lim, upper_lim, 16);
-                end
-            end
+            acc = acc + quadgk(@(Akz) unmake_contour(Akz, fun(make_contour(Akz))), 0, P.its.Nkz*P.k0);
         end
 
         function Akz_out = make_contour(Akz)

@@ -1,9 +1,10 @@
-function P = params(freq)
+function P = params(freq, Mmax, Pmax, nMax, qMax, Nkz)
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.854e-12;
 P.tanp = 2.2e-3;
 P.epsilon_d = 2.55*P.epsilon_0*(1-1j*P.tanp);
+P.eta_0 = sqrt(P.mu/P.epsilon_0);
 
 %geometric parameters
 P.a = 250e-3;
@@ -26,10 +27,10 @@ P.phi_1f = P.phif - P.dphif/2;
 P.phi_2f = P.phif + P.dphif/2;
 
 %source parameters
-if nargin > 0
+if exist("freq", "var")
     P.omega = freq*2*pi;
 else
-    P.omega = 2.45e9*2*pi;
+    P.omega = 2.4e9*2*pi;
 end
 P.I0 = 1;
 
@@ -47,10 +48,34 @@ P.expmin = 200;
 P.gamma = 1.781072418;
 
 %iteration parameters
-P.Mmax = 1;
-P.Pmax = 14;
-P.its.nMax = 50;
-P.its.qMax = 50;
-P.its.Nkz = 50;
+if exist("Mmax", "var")
+    P.Mmax = Mmax;
+else
+    P.Mmax = 1;
+end
+
+if exist("Pmax", "var")
+    P.Pmax = Pmax;
+else
+    P.Pmax = 18;
+end
+
+if exist("nMax", "var")
+    P.its.nMax = nMax;
+else
+    P.its.nMax = 50;
+end
+
+if exist("qMax", "var")
+    P.its.qMax = qMax;
+else
+    P.its.qMax = 50;
+end
+
+if exist("Nkz", "var")
+    P.its.Nkz = Nkz;
+else
+    P.its.Nkz = 50;
+end
+
 P.alpha = 0.5;
-P.fast = true;
