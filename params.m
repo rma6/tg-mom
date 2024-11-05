@@ -1,4 +1,4 @@
-function P = params(freq, Mmax, Pmax, nMax, qMax, Nkz)
+function P = params(freq)
 %constants
 P.mu = 4*pi*10.^-7;
 P.epsilon_0 = 8.854e-12;
@@ -27,11 +27,7 @@ P.phi_1f = P.phif - P.dphif/2;
 P.phi_2f = P.phif + P.dphif/2;
 
 %source parameters
-if exist("freq", "var")
-    P.omega = freq*2*pi;
-else
-    P.omega = 2.4e9*2*pi;
-end
+P.omega = freq*2*pi;
 P.I0 = 1;
 
 %aliases
@@ -42,40 +38,15 @@ P.delta_phi_f = P.phi_2f - P.phi_1f;
 P.kd = P.omega*sqrt(P.mu*P.epsilon_d);
 P.k0 = P.omega*sqrt(P.mu*P.epsilon_0);
 
-%theta parameters
+%other parameters
 P.argmax = 400;
 P.expmin = 200;
 P.gamma = 1.781072418;
-
-%iteration parameters
-if exist("Mmax", "var")
-    P.Mmax = Mmax;
-else
-    P.Mmax = 1;
-end
-
-if exist("Pmax", "var")
-    P.Pmax = Pmax;
-else
-    P.Pmax = 18;
-end
-
-if exist("nMax", "var")
-    P.its.nMax = nMax;
-else
-    P.its.nMax = 50;
-end
-
-if exist("qMax", "var")
-    P.its.qMax = qMax;
-else
-    P.its.qMax = 50;
-end
-
-if exist("Nkz", "var")
-    P.its.Nkz = Nkz;
-else
-    P.its.Nkz = 50;
-end
-
 P.alpha = 0.5;
+
+%precision parameters
+P.Mmax = 1;
+P.Pmax = 18;
+P.nMax = 50;
+P.qMax = 50;
+P.Nkz = 50;
