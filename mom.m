@@ -9,7 +9,6 @@ diary(fullfile(tfolder, "log.txt"))
 
 %; was omited for logging purposes
 P=params(2.4*10^9)
-P.its
 
 %sets up multithreading
 pool = gcp();
