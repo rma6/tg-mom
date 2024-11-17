@@ -1,4 +1,4 @@
-function r = Hz_in_proj(m, p, s, t, P) %eq 89
+function r = Hphi_in_proj(m, p, s, t, P) %eq 89
     %note that m==n==s or the results is 0
     if m == s    
         r = P.b*P.delta_phi/(2*P.L)*summation();

@@ -9,4 +9,3 @@ function r = V(s, t, P) %eq 101
         end
     end
 end
-%ok

@@ -1,4 +1,4 @@
-function r = Hz_out_proj(m, p, s, t, P) %eq 94
+function r = Hphi_out_proj(m, p, s, t, P) %eq 97
     r = (2*pi)^2*P.b*summation();
 
     function acc = summation()
@@ -14,20 +14,7 @@ function r = Hz_out_proj(m, p, s, t, P) %eq 94
                                                               + M_phi_Tef(-n, -kz, m, p, P).*M_phi_Tef(n, kz, s, t, P));
             end
 
-            acc = acc + quadgk(@(Akz) unmake_contour(Akz, fun(make_contour(Akz))), 0, P.Nkz*P.k0);
-        end
-
-        function Akz_out = make_contour(Akz)
-            Akz_out = Akz;
-            Akz_out(Akz <= P.k0 & n < 10) = Akz(Akz <= P.k0 & n < 10)*(1+1j*P.alpha);
-            Akz_out(Akz > P.k0 & Akz < 2*P.k0 & n < 10) = Akz(Akz > P.k0 & Akz < 2*P.k0 & n < 10)*(1-1j*P.alpha) + 2j*P.k0*P.alpha;
-        end
-
-        function Ar_out = unmake_contour(Akz, Ar)
-            Ar_out = Ar;
-            Ar_out(Akz <= P.k0 & n < 10) = Ar((Akz <= P.k0 & n < 10))*(1+1j*P.alpha);
-            Ar_out(Akz > P.k0 & Akz < 2*P.k0 & n < 10) = Ar((Akz > P.k0 & Akz < 2*P.k0 & n < 10))*(1-1j*P.alpha);
+            acc = acc + quadgk(@(Akz) fun(Akz), 0, P.Nkz*P.k0);
         end
     end
 end
-%ok
