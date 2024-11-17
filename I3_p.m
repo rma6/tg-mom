@@ -1,4 +1,4 @@
-function r = I3_p(q, p, P) %eq 62
+function r = I3_p(q, p, P) %eq 70
     if p <= (P.Pmax/2)
 	  Lp = (P.z_1a - P.z1)/(P.Pmax/2);
 	  z_1p = P.z1 + (p-1)*Lp;

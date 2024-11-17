@@ -30,12 +30,12 @@ end
 Zs = fetchOutputs(Zjobs);
 Vs = fetchOutputs(Vjobs);
 
-% %calculates D matrix and input impedance
+%calculates D matrix and input impedance
 Ds = cell(size(Zs));
 zinf = zeros(1, size(Zs, 1));
 zinm = zeros(1, size(Zs, 1));
 zin = zeros(1, size(Zs, 1));
-for it = 1:size(Zs, 1)
+parfor it = 1:size(Zs, 1)
     Ds{it} = Zs{it}\Vs{it};
     zinf(it) = z_in_f(params(freqs(it)));
     zinm(it) = z_in_m(Ds{it}, Vs{it}, params(freqs(it)));
