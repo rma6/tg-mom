@@ -1,18 +1,22 @@
 confs = [ % Mmax, Pmax, nMax, qMax, Nkz
+1, 4, 50, 50, 50;
+1, 6, 50, 50, 50;
+1, 14, 50, 50, 50;
 1, 18, 50, 50, 50;
-% 1, 18, 30, 50, 50;
-% 1, 18, 40, 50, 50;
-% 1, 18, 60, 50, 50;
-% 1, 18, 70, 50, 50;
-% 1, 18, 80, 50, 50;
-% 1, 18, 90, 50, 50;
-% 1, 18, 100, 50, 50;
-% 1, 18, 50, 40, 50;
-% 1, 18, 50, 60, 50;
-% 1, 18, 50, 70, 50;
-% 1, 18, 50, 50, 30;
-% 1, 18, 50, 50, 40;
-% 1, 18, 50, 50, 60;
+1, 22, 50, 50, 50;
+1, 22, 100, 100, 100;
+3, 18, 50, 50, 50;
+5, 18, 50, 50, 50;
+1, 18, 50, 50, 30;
+1, 18, 50, 50, 40;
+1, 18, 50, 50, 60;
+1, 18, 30, 50, 50;
+1, 18, 40, 50, 50;
+1, 18, 60, 50, 50;
+1, 18, 70, 50, 50;
+1, 18, 50, 40, 50;
+1, 18, 50, 60, 50;
+1, 18, 50, 70, 50;
 ];
 
 for ci = 1:size(confs, 1)
@@ -64,8 +68,9 @@ for ci = 1:size(confs, 1)
     [~, freq_index] = findpeaks(real(zin));
     peak_freq = freqs(freq_index);
     if size(peak_freq, 2) > 1
-        peak_freq = interp1(peak_freq,peak_freq,2.4e9,'nearest');
-        freq_index = find(freqs == peak_freq);
+        [~, idx] = min(abs(peak_freq - 2.4e9));
+        freq_index = freq_index(idx);
+        peak_freq = peak_freq(idx);
     end
     peak_dMat = Ds{freq_index};
     peak_power = 0.5*real(zin(freq_index))*abs(P.I0)^2;
