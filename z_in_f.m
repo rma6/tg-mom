@@ -13,4 +13,3 @@ function r = z_in_f(P) %eq 108
         end
     end
 end
-%ok

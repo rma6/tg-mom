@@ -11,4 +11,3 @@ function r = I4_p(kz, p, P) %eq 73: kz might be array
 
     r = (exp(1j*kz*z_2p)-exp(1j.*kz.*z_1p))./(1j*kz);
 end
-%oks

@@ -29,4 +29,3 @@ function r = theta_5(n, q, k, P) %thetas appendix: adição de K aos parâmetros
         r = sum(log10(2:ceil(ni)))-log10(2*pi);
     end
 end
-%ok

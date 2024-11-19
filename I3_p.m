@@ -15,4 +15,3 @@ function r = I3_p(q, p, P) %eq 70
         r = P.L/(q*pi)*(sin(q*pi/P.L*(z_2p-P.z1))-sin(q*pi/P.L*(z_1p-P.z1)));
     end
 end
-%ok

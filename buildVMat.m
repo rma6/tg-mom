@@ -14,4 +14,3 @@ function r = buildVMat(P, queue) %builds V matrix
 
     r{1} = Vmatrix;
 end
-%ok

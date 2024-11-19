@@ -43,4 +43,3 @@ function r = theta_7_rho(n, q, k, rho, P) %thetas appendix: adição de K aos pa
         r = sum(log10(2:ceil(ni)))-log10(2*pi);
     end
 end
-%ok

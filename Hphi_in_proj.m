@@ -14,4 +14,3 @@ function r = Hphi_in_proj(m, p, s, t, P) %eq 89
         end
     end
 end
-%ok
