@@ -4,7 +4,7 @@ function r = theta_3_rho(n, q, k, rho, P) %eq 30': adição de K aos parâmetros
     A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2);
     A_k_rho = cinv(A_k_rho);
 
-    if ni ==0
+    if ni == 0
         argmin = 2*10^(-P.expmin);
     else
         argmin = 2*10^((c_log(ni)-P.expmin)/(1+ni));

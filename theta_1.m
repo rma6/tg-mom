@@ -1,7 +1,7 @@
-function r = theta_1(n, q, k, P) %eq 30': adição de K aos parâmetros para diferenciar região interna de externa (kd | k0); q might be array
+function r = theta_1(n, q, k, P) %eq 43: adição de K aos parâmetros para diferenciar região interna de externa (kd | k0); q might be array
     ni = n*pi/P.delta_phi;
 
-    A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2);
+    A_k_rho = sqrt(k.^2 - (q*pi/P.L).^2); % I think k is not array
     A_k_rho = cinv(A_k_rho);
 
     if ni == 0
@@ -14,7 +14,7 @@ function r = theta_1(n, q, k, P) %eq 30': adição de K aos parâmetros para dif
     for it = 1:size(A_k_rho, 2)
         k_rho = A_k_rho(it);
 
-        if abs(k_rho*P.a) > P.argmax
+        if abs(k_rho*P.a) > P.argmax % maybe change to k_rho*P.b
             r(it) = 2j/(pi*k_rho*sqrt(P.a*P.b))*((1+1/(4*k_rho^2*P.a*P.b))*sin(k_rho*(P.b-P.a))+(1/(2*k_rho*P.b)-1/(2*k_rho*P.a))*cos(k_rho*(P.b-P.a)));
         elseif abs(k_rho*P.a) < argmin &&  ni == 0
             r(it) = 1j/pi*(P.b/P.a-P.a/P.b);
