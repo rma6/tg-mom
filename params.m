@@ -74,5 +74,3 @@ if exist("Nkz", "var")
 else
     P.Nkz = 50;
 end
-
-P.alpha = 0.5;
