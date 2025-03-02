@@ -13,11 +13,11 @@ function r = theta_3_rho(n, q, k, rho, P) %eq 30': adição de K aos parâmetros
     if size(rho, 2) > 1
         k_rho = A_k_rho;
 
-        if abs(k_rho*rho) > P.argmax
+        if abs(k_rho*P.a) > P.argmax
             r = -2j./(pi*k_rho*sqrt(P.a*rho)).*(sin(k_rho*(rho-P.a))/(2*k_rho*P.a)+cos(k_rho*(rho-P.a)));
-        elseif abs(k_rho*rho) < argmin &&  ni == 0
+        elseif abs(k_rho*P.a) < argmin &&  ni == 0
             r = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*log(P.gamma*k_rho*rho/2));
-        elseif abs(k_rho*rho) < argmin &&  ni ~= 0
+        elseif abs(k_rho*P.a) < argmin &&  ni ~= 0
             r = -1j/(pi*k_rho)*((rho/P.a).^ni/P.a + (P.a./rho).^(ni-1)./rho);
         else
             r = besselj(ni, k_rho*rho)*dH2(ni, k_rho*P.a) - dJ(ni, k_rho*P.a)*besselh(ni, 2, k_rho*rho);
@@ -27,11 +27,11 @@ function r = theta_3_rho(n, q, k, rho, P) %eq 30': adição de K aos parâmetros
         for it = 1:size(A_k_rho, 2)
             k_rho = A_k_rho(it);
     
-            if abs(k_rho*rho) > P.argmax
+            if abs(k_rho*P.a) > P.argmax
                 r(it) = -2j/(pi*k_rho*sqrt(P.a*rho))*(sin(k_rho*(rho-P.a))/(2*k_rho*P.a)+cos(k_rho*(rho-P.a)));
-            elseif abs(k_rho*rho) < argmin &&  ni == 0
+            elseif abs(k_rho*P.a) < argmin &&  ni == 0
                 r(it) = -2j/pi*(1/(k_rho*P.a)+k_rho*P.a/2*log(P.gamma*k_rho*rho/2));
-            elseif abs(k_rho*rho) < argmin &&  ni ~= 0
+            elseif abs(k_rho*P.a) < argmin &&  ni ~= 0
                 r(it) = -1j/(pi*k_rho)*((rho/P.a)^ni/P.a + (P.a/rho)^(ni-1)/rho);
             else
                 r(it) = besselj(ni, k_rho*rho)*dH2(ni, k_rho*P.a) - dJ(ni, k_rho*P.a)*besselh(ni, 2, k_rho*rho);
