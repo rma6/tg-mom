@@ -32,15 +32,11 @@ function [Gphi0_db, Gtheta90_db] = radpat(dMat, peak_power, P)
 
     Gphi0_db = Gphi0;
     Gphi0_db(:,2) = 10*log10(Gphi0_db(:,2));
-%     Gphi0_db(:,2) = Gphi0_db(:,2)-max(Gphi0_db(:,2));
     Gphi0_db(:,3) = 10*log10(Gphi0_db(:,3));
-%     Gphi0_db(:,3) = Gphi0_db(:,3)-max(Gphi0_db(:,3));
     
     Gtheta90_db = Gtheta90;
     Gtheta90_db(:,2) = 10*log10(Gtheta90_db(:,2));
-%     Gtheta90_db(:,2) = Gtheta90_db(:,2)-max(Gtheta90_db(:,2));
     Gtheta90_db(:,3) = 10*log10(Gtheta90_db(:,3));
-%     Gtheta90_db(:,3) = Gtheta90_db(:,3)-max(Gtheta90_db(:,3));
 
     figure('Name','gain_theta@phi=0'); polarpattern(Gphi0_db(:,1), Gphi0_db(:,2), TitleTopTextInterpreter="tex", TitleTop = "E_{\theta} @ \phi=0"+char(176))
     figure('Name','gain_phi@phi=0'); polarpattern(Gphi0_db(:,1), Gphi0_db(:,3), TitleTopTextInterpreter="tex", TitleTop = "E_{\phi} @ \phi=0"+char(176))
