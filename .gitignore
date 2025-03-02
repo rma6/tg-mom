@@ -3,6 +3,7 @@ loadProfile.m
 saveProfile.m
 profile.mat
 farfield/
-plot_scripts/
+plot_scripts/*.png
+plot_scripts/*.svg
 plots/
 data*/
