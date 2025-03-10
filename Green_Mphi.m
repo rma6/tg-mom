@@ -14,13 +14,13 @@ function r = Green_Mphi(rho, n, kz, P) %eqs 94-96: kz might be array
 
         if imag(k_rho*P.b) == 0 && abs(real(k_rho*P.b)) <= argmin
             if n == 0
-                r(it) = 1j*P.omega*P.epsilon_0/k_rho*1/(1j*pi/2*k_rho*P.b + k_rho*P.b*log(P.gamma*real(k_rho*P.b)/2));
+                r(it) = 1j*P.omega*P.epsilon_0/k_rho*1/(1j*pi/2*k_rho*P.b + k_rho*P.b*log(P.gamma*k_rho*P.b/2));
             else
                 r(it) = n/(1j*P.omega*P.mu*P.b);
             end
         elseif real(k_rho*P.b) == 0 && abs(imag(k_rho*P.b)) <= argmin
             if n == 0
-                r(it) = 1j*P.omega*P.epsilon_0/(k_rho*k_rho*P.b*log(P.gamma*imag(-k_rho*P.b)/2));
+                r(it) = 1j*P.omega*P.epsilon_0/(k_rho*k_rho*P.b*log(P.gamma*-k_rho*P.b/2));
             else
                 r(it) = n/(1j*P.omega*P.mu*P.b);
             end
